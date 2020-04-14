@@ -1,0 +1,62 @@
+@import "./_vars";
+
+@mixin flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin list {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+@mixin reset-link {
+    text-decoration: none;
+    outline: none;
+  }
+
+@mixin nav_link {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  color: $link-color;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  transition: color 200ms linear;
+}
+
+@mixin drop {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 32px;
+  width: 9px;
+  height: 8px;
+  background-image: url("../../assets/drop.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+@mixin icon-after {
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid $buttom-after-color;
+  color: $buttom-after-color;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 15px;
+  background-color: #fff;
+}
+  
