@@ -10,8 +10,8 @@
     <h2 class="home__title">Lorem Ipsum Dolor Sit Amet</h2>
     <div class="product">
       <div class="product__preview">
-        <img src="../assets/product/real/img0.png" alt="Photo product" class="product__real-img">
-        <div class="product__demos">
+        <img :src="'/img/real/' + img + '.png'" alt="Photo product" class="product__real-img">
+        <div class="product__demos" @click="getImg">
           <img 
             v-for="image in images" 
             :key="image.key" 
@@ -56,6 +56,19 @@
             <router-link to="#" class="product__content-link">Read more</router-link>
           </div>
           <div class="product__socials">
+            <span class="product__social-text">
+              Share
+            </span>
+            <div class="product__social-icons">
+              <a
+                v-for="social in socials"
+                :key="social.src"
+                :href="social.url"
+                target="blank"
+                class="product__social-link">
+                <img :src="social.src" :alt="social.alt" class="product__social-img">
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -75,10 +88,27 @@ export default {
         { url: '/img/demo/img2.png', alt: 'Stairs with man', key: 'img2' },
         { url: '/img/demo/img3.png', alt: 'Pampkin', key: 'img3' },
         { url: '/img/demo/img4.png', alt: 'Stairs', key: 'img4' },
-        ]
+        ],
+      img: "img0",
+      socials: [
+        { src: '/img/social/facebook.png', alt: 'Facebook icon', url: 'https://www.facebook.com' },
+        { src: '/img/social/google.png', alt: 'Google+ icon', url: 'https://plus.google.com' },
+        { src: '/img/social/twitter.png', alt: 'Twitter icon', url: 'https://twitter.com' },
+        { src: '/img/social/pinter.png', alt: 'Pinterest icon', url: 'https://www.pinterest.ru' }
+      ]
     }
-  }
+  },
+  methods: {
+    getImg(event) {
+      const currentImg = event.target.getAttribute('data-img');
 
+      if (currentImg === null) {
+        return;
+      }
+
+      this.img = currentImg;
+    }
+  },
 }
 </script>
 
@@ -187,6 +217,11 @@ export default {
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 900;
+      transition: background-color 200ms linear;
+
+      &:hover {
+        background-color: #61539b;
+      }
     }
 
     &__content {
@@ -202,6 +237,36 @@ export default {
       color: $pass-visited-link;
       font-weight: 600;
       margin: 20px 0 38px;
+    }
+
+    &__socials {
+      @include flex-between-center;
+      max-width: 190px;
+      font-size: 14px;
+    }
+
+    &__social-text {
+      opacity: 0.4;
+    }
+
+    &__social-icons {
+      @include flex-between-center;
+      width: 120px;
+    }
+
+    &__social-link {
+      display: block;
+      height: 15px;
+      opacity: 0.4;
+      transition: opacity 200ms linear;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__social-img {
+      height: 15px;
     }
   }
 
