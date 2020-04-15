@@ -64,8 +64,8 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 2px solid $buttom-after-color;
-  color: $buttom-after-color;
+  border: 2px solid $button-after-color;
+  color: $button-after-color;
   text-align: center;
   font-size: 12px;
   font-weight: 900;
@@ -84,6 +84,16 @@
 
 @mixin big-head {
   font-size: 48px;
+}
+
+@mixin preview-buttons ($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
   

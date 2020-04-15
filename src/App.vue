@@ -16,6 +16,7 @@
     box-sizing: border-box;
     outline: none;
     font-family: $font-family-main;
+    color: $link-content-color;
   }
 
   h1, h2, h3 {
