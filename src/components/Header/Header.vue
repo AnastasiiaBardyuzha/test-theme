@@ -4,7 +4,7 @@
       <img alt="Logo" src="../../assets/logo.png" class="header__logo-img"> 
     </router-link>
     <div class="header__nav-part">  
-      <Nav />
+      <Nav :categories="categories" />
       <div class="header__drops">
         <HeaderDrops />
       </div>
@@ -58,6 +58,9 @@
   import HeaderDrops from '../HeaderDrops/HeaderDrops.vue'
 
   export default {
+    props: {
+      categories: Array
+      },
     components: {
       Nav,
       HeaderIcons,

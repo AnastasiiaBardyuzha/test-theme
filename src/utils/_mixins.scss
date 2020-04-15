@@ -21,26 +21,39 @@
   }
 
 @mixin nav_link {
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 16px;
-  color: $link-color;
+  color: $link-content-color;
   display: inline-block;
   text-align: center;
   cursor: pointer;
-  transition: color 200ms linear;
+  transition: color 300ms linear;
+}
+
+@mixin before-nav-back {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  z-index: $z-index-before;
+  background-color: $nav-activ-background;
+  transition: all 200ms linear;
 }
 
 @mixin drop {
   content: '';
   position: absolute;
   right: 0;
-  top: 32px;
+  top: 34px;
   width: 9px;
   height: 8px;
   background-image: url("../../assets/drop.png");
   background-position: bottom;
   background-repeat: no-repeat;
+  transition: all 200ms linear;
 }
 
 @mixin icon-after {
@@ -59,4 +72,18 @@
   line-height: 15px;
   background-color: #fff;
 }
+
+@mixin head {
+  font-family: $font-family-head;
+  font-weight: 600;
+}
+
+@mixin main-color-head {
+  color: $head-main-color;
+}
+
+@mixin big-head {
+  font-size: 48px;
+}
+
   

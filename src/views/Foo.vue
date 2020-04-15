@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div>
     <h1>{{ name }}</h1>
   </div>
 </template>
@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      name: 'Abuot',
+      name: 'Foo component',
     }
   }
   

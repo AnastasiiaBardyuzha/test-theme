@@ -33,6 +33,7 @@ export default {
     &__link {
       @include reset-link;
       @include nav_link;
+      text-transform: uppercase;
       padding: 29px 18px 28px 0;
       position: relative;
       color: #a2a09e;

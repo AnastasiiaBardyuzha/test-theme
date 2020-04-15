@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <Header /> 
+      <Header :categories="categories"  /> 
       <main class="main">
        <router-view/>
       </main>
@@ -18,6 +18,10 @@
     font-family: $font-family-main;
   }
 
+  h1, h2, h3 {
+    margin: 0;
+  }
+
   .wrapper {
     display: block;
     max-width: 1280px;
@@ -26,7 +30,7 @@
 
   .main {
     background: $main-background;
-    padding: 0 55px;
+    padding: 55px;
   }
 
 </style>
@@ -36,6 +40,23 @@
   export default {
     components: {
       Header
+    },
+      data () {
+    return {
+      categories: null
     }
+  },
+
+  methods: {
+     async getCategories() {
+      const response = await fetch('https://raw.githubusercontent.com/gpupo/submarino-sdk/master/Resources/mockup/categories/list.json');
+      this.categories = await response.json();
+    },
+  },
+
+  mounted () {
+    this.getCategories()
   }
+
+  };
 </script>  
