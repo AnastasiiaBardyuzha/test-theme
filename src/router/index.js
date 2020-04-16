@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
-import Foo from '../views/Foo.vue'
-import Bar from '../views/Bar.vue'
+import Category from '../views/Category.vue'
 import Categories from '../views/Categories.vue'
 
 Vue.use(VueRouter)
@@ -13,7 +12,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/about',
@@ -31,14 +30,9 @@ Vue.use(VueRouter)
     component: Categories
   },
   {
-    path: '/foo',
-    name: 'Foo',
-    component: Foo
-  },
-  {
-    path: '/bar',
-    name: 'Bar',
-    component: Bar
+    path: '/categories/:id',
+    name: 'Category',
+    component: Category
   }
 ]
 

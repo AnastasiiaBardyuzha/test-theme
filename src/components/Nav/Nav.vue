@@ -8,7 +8,7 @@
         </a>
         <ul class="nav__drop-list drop">
           <li class="drop__title">Product categories</li>
-          <router-link tag="li" :to="'/' + category.name" exact
+          <router-link tag="li" :to="'/categories/' + category.name" exact
             v-for="category in categories" :key="category.name">
             <a class="drop__link">
               {{ category.name }}
@@ -123,6 +123,7 @@
       text-transform: uppercase;
       font-size: 14px;
       margin-bottom: 11px;
+      color: #fff;
     }
 
     &__link {
