@@ -71,6 +71,10 @@ export default {
   @import "../../utils/_mixins.scss";
   @import "../../utils/_vars.scss";
 
+  .product__tabs {
+    margin-bottom: 33px;
+  }
+
   .tabs {
   max-width: 100%;
   margin: auto;
@@ -82,7 +86,7 @@ export default {
     font-family: $font-family-head;
     font-weight: 600;
     background: #fff;
-    color: #bdc3c7;
+    color: $non-active-tab-color;
     border: none;
     border-radius: 23px 23px 0 0;
     border-bottom: 2px solid $border-color-preview-button;
@@ -111,4 +115,4 @@ export default {
   }
 }
 
-</style>>
+</style>

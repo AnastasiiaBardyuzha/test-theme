@@ -12,17 +12,20 @@
      <ProductPreview />
      <ProductTabs />
     </div>
+    <Carousel />
   </div>
 </template>
 
 <script>
 import ProductPreview from '../components/ProductPreview/ProductPreview';
 import ProductTabs from '../components/ProductTabs/ProductTabs';
+import Carousel from '../components/Carousel/Carousel';
 
 export default {
   components: {
     ProductPreview,
-    ProductTabs
+    ProductTabs,
+    Carousel
   }
 }
 </script>
