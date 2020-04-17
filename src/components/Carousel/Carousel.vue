@@ -3,9 +3,10 @@
     <h1 class="carousel__title">Popular items</h1>
     <ul class="carousel__wrapper">
       <li
-        v-for='card in carouselImages'
-        :key="card.src"
+        v-for='(card, index) in carouselImages'
+        :key="index"
         class="carousel__item"
+        ref="carouselCard"
       >
         <div class="carousel__card">
           <div class="carousel__photo">
@@ -22,8 +23,20 @@
         </div>
       </li>
     </ul>
-    <div class="carousel__btn carousel__btn_prew"></div>
-    <div class="carousel__btn carousel__btn_next"></div>
+    <div
+      class="carousel__btn carousel__btn_prev"
+      :data-side="slideWidth"
+      data-count="-1"
+      @click="carouselGo"
+    >
+    </div>
+    <div
+      class="carousel__btn carousel__btn_next"
+      :data-side="-slideWidth"
+      data-count="1"
+      @click="carouselGo"
+    >
+    </div>
   </div>
 </template>
 
@@ -36,11 +49,48 @@ export default {
          { src: '/img/carousel/cat.png', alt: 'Cat', title: 'Kristina Dam Oak Table With', underTitle: 'White Marble Top', price: '2195.00' },
          { src: '/img/carousel/liquors.png', alt: 'Liquors', title: 'Activate Facial Mask and', underTitle: 'Charcoal Soap', price: '129.55' },
          { src: '/img/carousel/elefants.png', alt: 'Elefants', title: 'Cocktail Table Walnut', underTitle: '| YES', price: '799,55' },
+         { src: '/img/carousel/elefants.png', alt: 'Elefants', title: 'Cocktail Table Walnut', underTitle: '| YES', price: '799,55' },
+         { src: '/img/carousel/stairs.png', alt: 'Stairs', title: 'Kristina Dam Oak Table With', underTitle: 'White Marble Top', price: '799.55' },
+         { src: '/img/carousel/cat.png', alt: 'Cat', title: 'Kristina Dam Oak Table With', underTitle: 'White Marble Top', price: '2195.00' },
         ],
-       arrow: "1",
+       slideWidth: 300,
+       counter: -1,
+       position: 0,
+       numberOfSlides: 7
      }
-   }   
+   },
+   methods: {
+     carouselGo(ev) {
+       const dataArrow = parseInt(ev.target.getAttribute('data-side'));
+       const dataCount = parseInt(ev.target.getAttribute('data-count'));
+
+       this.counter += dataCount;
+       
+
+       if (
+        this.counter >= this.numberOfSlides - 4
+        && ev.target.classList.contains('carousel__btn_next')
+        ) {
+          this.position = this.slideWidth;
+          this.counter = -1;
+        }
+
+        if (
+          this.counter <= -1
+          && ev.target.classList.contains('carousel__btn_prev')
+        ) {
+          this.position = -this.slideWidth;
+          this.counter = -1;
+        }
+
+       this.position += dataArrow;
+
+       document.querySelector('.carousel__item').style.marginLeft = `${this.position}px`;
+     }
+   }
+   
 }
+
 </script>>
 
 <style lang="scss">
@@ -50,6 +100,7 @@ export default {
   .carousel {
     text-align: center;
     position: relative;
+    margin-bottom: 65px;
 
     &__title {
       @include head;
@@ -110,21 +161,32 @@ export default {
     &__btn {
       display: block;
       position: absolute;
-      top: 0;
-      height: 35px;
-      width: 35px;
+      top: 12px;
+      height: 25px;
+      width: 25px;
       border-right: 1px solid #45413e;
       border-top: 1px solid #45413e;
-    }
-
-    &__btn_prew {
-      left: 0;
-      transform: skew(-90deg);
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 300ms linear;
     }
 
     &__btn_next {
-      right: 0;
-      transform: skew(90deg);
+      transform: rotate(45deg);
+      right: 5px;
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+
+    &__btn_prev {
+      transform: rotate(-135deg);
+      left: 5px;
+
+       &:hover{
+        opacity: 0.8;
+      }
     }
   }
 

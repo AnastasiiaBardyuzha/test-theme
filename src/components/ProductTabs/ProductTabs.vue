@@ -93,6 +93,7 @@ export default {
     padding: 17px 44px;
     text-align: center;
     cursor: pointer;
+    z-index: 2;
   }
 
   &__button-active {
@@ -102,11 +103,11 @@ export default {
   }
 
   &__line {
+    position: relative;
     width: 100%;
     height: 2px;
     background: #e8e2d6;
-    margin-top: -2px;
-    z-index: -1;
+    top: -2px;
   }
 
   &__content {

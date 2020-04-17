@@ -1,15 +1,19 @@
 <template>
   <div class="product__preview">
-    <img :src="'/img/real/' + img + '.png'" alt="Photo product" class="product__real-img">
+    <div class="product__real-photo">
+      <img :src="'/img/real/' + img + '.png'" alt="Photo product" class="product__real-img">
+    </div>
     <div class="product__demos" @click="getImg">
-      <img 
-        v-for="image in images" 
-        :key="image.key" 
-        :src="image.url" 
-        :alt="image.alt" 
-        :data-img="image.key"
-        class="product__demo"
-      >
+    <div>
+    <img
+      v-for="image in images" 
+      :key="image.key"
+      :src="image.url"
+      :alt="image.alt"
+      :data-img="image.key"
+      class="product__demo"
+    >
+    </div>
     </div>
     <div class="product__preview-info">
       <h3 class="product__preview-title">$299.99</h3>
@@ -40,7 +44,7 @@
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inven- tore Beatae vitae dicta sunt explicabo.
         </span>
         <br/>
-        <span>  
+        <span>
           Nemo enim ipsam voluptatem quia voluptas
         </span>
         <router-link to="#" class="product__content-link">Read more</router-link>

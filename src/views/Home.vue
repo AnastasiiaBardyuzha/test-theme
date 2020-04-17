@@ -73,10 +73,16 @@ export default {
       margin-bottom: 48px;
     }
 
+    &__real-photo {
+      max-width: 600px;
+      margin-right: 30px;
+    }
+
     &__real-img {
       border-radius: 5px 0 0;
+      width: 100%;
+      height: 100%;
       display: block;
-      margin-right: 30px;
     }
 
     &__demos {
