@@ -21,11 +21,12 @@ import ProductPreview from '../components/ProductPreview/ProductPreview';
 import ProductTabs from '../components/ProductTabs/ProductTabs';
 import Carousel from '../components/Carousel/Carousel';
 
+
 export default {
   components: {
     ProductPreview,
     ProductTabs,
-    Carousel
+    Carousel,
   }
 }
 </script>
@@ -81,7 +82,7 @@ export default {
     &__real-img {
       border-radius: 5px 0 0;
       width: 100%;
-      height: 100%;
+      height: auto;
       display: block;
     }
 
@@ -95,6 +96,12 @@ export default {
 
     &__demo {
       margin-bottom: 25px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    &__demo_active {
+      opacity: 1;
     }
 
     &__preview-info {

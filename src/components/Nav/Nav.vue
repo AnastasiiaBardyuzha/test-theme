@@ -1,7 +1,7 @@
 <template>
 <div class="">
   <nav class="nav">
-    <ul class="nav__list">  
+    <ul class="nav__list">
       <router-link tag="li" to="/categories" exact class="nav__item nav__item_with-drop">
         <a class="nav__link  nav__link_drop">
           Categiries
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+
   export default {
   props: {
       categories: Array
@@ -139,5 +140,5 @@
     display: block;
     opacity: 1;
   }
-  
+
 </style>

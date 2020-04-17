@@ -12,7 +12,6 @@
         {{ tab.name }}
       </button>
     </div>
-    <div class="tabs__line"></div>
     <div class="tabs__content">
       <div v-if="tabIndex === '0'">
         <Description />
@@ -35,7 +34,7 @@ import Reviews from '../Reviews'
 export default {
    data () {
      return {
-       tabs: [ 
+       tabs: [
          {name: 'Description', isActive: true },
          {name: 'Additional Information', isActive: false },
          {name: 'Reviews (3)', isActive: false }
@@ -80,20 +79,23 @@ export default {
   margin: auto;
   display: flex;
   justify-content: center;
+  border-bottom: 2px solid #e8e2d6;
 
   &__button {
+    position: relative;
+    bottom: -2px;
     font-size: 27px;
     font-family: $font-family-head;
     font-weight: 600;
-    background: #fff;
+    background: transparent;
     color: $non-active-tab-color;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 23px 23px 0 0;
-    border-bottom: 2px solid $border-color-preview-button;
     padding: 17px 44px;
     text-align: center;
     cursor: pointer;
     z-index: 2;
+    margin: 0;
   }
 
   &__button-active {

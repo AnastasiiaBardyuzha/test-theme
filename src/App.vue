@@ -6,6 +6,7 @@
        <router-view/>
       </main>
       <PreFooter />
+      <Footer />
     </div>
   </div>
 </template>
@@ -20,7 +21,7 @@
     color: $link-content-color;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h6 {
     margin: 0;
   }
 
@@ -39,11 +40,13 @@
 <script>
   import Header from './components/Header/Header.vue'
   import PreFooter from './components/PreFooter/PreFooter.vue'
+  import Footer from './components/Footer/Footer.vue'
 
   export default {
     components: {
       Header,
       PreFooter,
+      Footer,
     },
       data () {
     return {

@@ -6,12 +6,13 @@
     <div class="product__demos" @click="getImg">
     <div>
     <img
-      v-for="image in images" 
+      v-for="image in images"
       :key="image.key"
       :src="image.url"
       :alt="image.alt"
       :data-img="image.key"
       class="product__demo"
+      :class="{'product__demo_active': image.isActive}"
     >
     </div>
     </div>
@@ -53,33 +54,25 @@
         <span class="product__social-text">
           Share
         </span>
-        <div class="product__social-icons">
-          <a
-            v-for="social in socials"
-            :key="social.src"
-            :href="social.url"
-            target="blank"
-            class="product__social-link">
-            <img :src="social.src" :alt="social.alt" class="product__social-img">
-          </a>
-        </div>
+        <Socials />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Socials from '../Socials/Socials';
 
 
 export default {
   data () {
     return {
       images: [
-        { url: '/img/demo/img0.png', alt: 'Owl', key: 'img0' },
-        { url: '/img/demo/img1.png', alt: 'Cosmonaut', key: 'img1' },
-        { url: '/img/demo/img2.png', alt: 'Stairs with man', key: 'img2' },
-        { url: '/img/demo/img3.png', alt: 'Pampkin', key: 'img3' },
-        { url: '/img/demo/img4.png', alt: 'Stairs', key: 'img4' },
+        { url: '/img/demo/img0.png', alt: 'Owl', key: 'img0', isActive: true },
+        { url: '/img/demo/img1.png', alt: 'Cosmonaut', key: 'img1', isActive: false },
+        { url: '/img/demo/img2.png', alt: 'Stairs with man', key: 'img2', isActive: false },
+        { url: '/img/demo/img3.png', alt: 'Pampkin', key: 'img3', isActive: false },
+        { url: '/img/demo/img4.png', alt: 'Stairs', key: 'img4', isActive: false },
         ],
       img: "img0",
       socials: [
@@ -98,8 +91,19 @@ export default {
         return;
       }
 
+      this.images = this.images.map(img => {
+        if(img.key === currentImg) {
+            return { ...img, isActive: true };
+        } else {
+          return { ...img, isActive: false }
+        }
+      })
+
       this.img = currentImg;
     }
   },
+  components: {
+    Socials
+  }
 }
 </script>
