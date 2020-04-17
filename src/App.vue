@@ -5,6 +5,7 @@
       <main class="main">
        <router-view/>
       </main>
+      <PreFooter />
     </div>
   </div>
 </template>
@@ -37,10 +38,12 @@
 </style>
 <script>
   import Header from './components/Header/Header.vue'
+  import PreFooter from './components/PreFooter/PreFooter.vue'
 
   export default {
     components: {
-      Header
+      Header,
+      PreFooter,
     },
       data () {
     return {
