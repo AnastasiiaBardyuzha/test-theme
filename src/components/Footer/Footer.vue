@@ -21,7 +21,7 @@
             v-for="(category, index) in categories"
             :key="index"
           > 
-            <a class="footer__item">
+            <a href="#" class="footer__item">
               {{category}}
             </a> 
           </li>
@@ -36,7 +36,7 @@
             v-for="(item, index) in about"
             :key="index"
           > 
-            <a class="footer__item">
+            <a href="#" class="footer__item">
               {{item}}
             </a> 
           </li>

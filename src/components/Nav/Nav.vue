@@ -1,29 +1,29 @@
 <template>
-<div class="">
-  <nav class="nav">
-    <ul class="nav__list">
-      <router-link tag="li" to="/categories" exact class="nav__item nav__item_with-drop">
-        <a class="nav__link  nav__link_drop">
-          Categiries
-        </a>
-        <ul class="nav__drop-list drop">
-          <li class="drop__title">Product categories</li>
-          <router-link tag="li" :to="'/categories/' + category.name" exact
-            v-for="category in categories" :key="category.name">
-            <a class="drop__link">
-              {{ category.name }}
-            </a>
-            </router-link>
-        </ul>
-      </router-link>
-      <router-link tag="li" to="/about" class="nav__item">
-        <a class="nav__link">About</a>
-      </router-link>
-      <router-link tag="li" to="/contact" class="nav__item">
-        <a class="nav__link">Contact</a>
-      </router-link>
-    </ul>
-  </nav>
+  <div class="">
+    <nav class="nav">
+      <ul class="nav__list">
+        <router-link tag="li" to="/categories" exact class="nav__item nav__item_with-drop">
+          <a class="nav__link  nav__link_drop">
+            Categiries
+          </a>
+          <ul class="nav__drop-list drop">
+            <li class="drop__title">Product categories</li>
+            <router-link tag="li" :to="'/categories/' + category.name" exact
+              v-for="category in categories" :key="category.name">
+              <a class="drop__link">
+                {{ category.name }}
+              </a>
+              </router-link>
+          </ul>
+        </router-link>
+        <router-link tag="li" to="/about" class="nav__item">
+          <a class="nav__link">About</a>
+        </router-link>
+        <router-link tag="li" to="/contact" class="nav__item">
+          <a class="nav__link">Contact</a>
+        </router-link>
+      </ul>
+    </nav>
   </div>
 </template>
 

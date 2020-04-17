@@ -1,14 +1,14 @@
 <template>
-      <div class="social">
-          <a
-            v-for="social in socials"
-            :key="social.src"
-            :href="social.url"
-            target="blank"
-            class="social__link">
-            <img :src="social.src" :alt="social.alt" class="social__img">
-          </a>
-        </div>
+  <div class="social">
+      <a
+        v-for="social in socials"
+        :key="social.src"
+        :href="social.url"
+        target="blank"
+        class="social__link">
+        <img :src="social.src" :alt="social.alt" class="social__img">
+      </a>
+    </div>
 </template>
 
 <script>
@@ -55,6 +55,6 @@ export default {
     }
   }
 
-  
+
 
 </style>
