@@ -64,8 +64,7 @@ export default {
        const dataArrow = parseInt(ev.target.getAttribute('data-side'));
        const dataCount = parseInt(ev.target.getAttribute('data-count'));
 
-       this.counter += dataCount;
-       
+       this.counter += dataCount;       
 
        if (
         this.counter >= this.numberOfSlides - 4
@@ -78,9 +77,10 @@ export default {
         if (
           this.counter <= -1
           && ev.target.classList.contains('carousel__btn_prev')
+          && this.position === 0
         ) {
-          this.position = -this.slideWidth;
-          this.counter = -1;
+          this.position = -this.slideWidth * (this.numberOfSlides - 3);
+          this.counter = this.numberOfSlides - 4;
         }
 
        this.position += dataArrow;
