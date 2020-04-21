@@ -87,17 +87,16 @@ export default {
     getImg({ target }) {
      const currentImg = target.getAttribute('data-img');
 
-      if (currentImg) {
-        this.images = this.images.map(img => {
-          if(img.key === currentImg) {
-            return { ...img, isActive: true };
-          }
-          
-          return { ...img, isActive: false };
-        });
+      if(currentImg) {
+        const nextActive = this.images.findIndex(img => img.key === currentImg);
+        const prewActive = this.images.findIndex(img => img.isActive === true);
+        if (nextActive !== prewActive) {
+          this.images[nextActive].isActive = true;
+          this.images[prewActive].isActive = false;
+        }
 
         this.img = currentImg;
-      }
+      }  
     }
   },
   components: {
