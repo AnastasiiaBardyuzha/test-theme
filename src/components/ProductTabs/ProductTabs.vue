@@ -55,7 +55,6 @@ export default {
       })
 
       this.tabIndex = currentIndex;
-      console.log(this.tabIndex);
     }
   },
   components: {

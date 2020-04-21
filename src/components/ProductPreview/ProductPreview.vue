@@ -84,22 +84,20 @@ export default {
     }
   },
   methods: {
-    getImg(event) {
-      const currentImg = event.target.getAttribute('data-img');
+    getImg({ target }) {
+     const currentImg = target.getAttribute('data-img');
 
-      if (currentImg === null) {
-        return;
-      }
-
-      this.images = this.images.map(img => {
-        if(img.key === currentImg) {
+      if (currentImg) {
+        this.images = this.images.map(img => {
+          if(img.key === currentImg) {
             return { ...img, isActive: true };
-        } else {
-          return { ...img, isActive: false }
-        }
-      })
+          }
+          
+          return { ...img, isActive: false };
+        });
 
-      this.img = currentImg;
+        this.img = currentImg;
+      }
     }
   },
   components: {
